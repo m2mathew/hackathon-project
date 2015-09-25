@@ -11,5 +11,5 @@ module.exports = Backbone.Model.extend ({
 	},
 
 	urlRoot:'https://find-a-spot.herokuapp.com/',
-	idAttribute: _id
+	idAttribute: '_id'
 }); 
