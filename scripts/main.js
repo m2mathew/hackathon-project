@@ -46,14 +46,12 @@ $(document).ready(function() {
 
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
-    restaurants.on('add', function(x) {
-        var restaurantName = x.get('name');
+    restaurants.on('add', function(restModel) {
+        var restaurantName = restModel.get('name');
         console.log(this);
         $('#restaurant-list').append(restaurantName);
         console.log(restaurantName);
     });
-
-
 
 
     $restaurants.on('click', function() {
