@@ -21,10 +21,10 @@ $(document).ready(function() {
 
     var Router = Backbone.Router.extend({
         routes: {
-            'home': "goHome",
-            'login': "goToLogin"
+            'restaurants': 'showRestaurants',
+            'login': 'goToLogin'
         },
-        goHome: function() {
+        showRestaurants: function() {
             $('section').hide();
             $restaurants.show();
         },
@@ -46,23 +46,21 @@ $(document).ready(function() {
 
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
-    restaurants.on('add', function(restModel) {
-        var restaurantName = restModel.get('name');
-        console.log(this);
-        $('#restaurant-list').append(restaurantName);
-        console.log(restaurantName);
+    restaurants.on('add', function(newRestaurantModel) {
+        var restaurantName = newRestaurantModel.get('name');
+
+        var newHtml = restaurantTemplate(newRestaurantModel.toJSON());
+        var $newElement = $(newHtml);
+        console.log($newElement);
+
+        $restaurants.append($newElement);
+
+        $newElement.on('click', function() {
+            $parkingSpots.show();
+
+        });
     });
 
 
-    $restaurants.on('click', function() {
-
-
-        restaurantTemplate(model.toJSON());
-        console.log(restaurantTemplate(model.toJSON()));
-
-    // restaurantTemplate()
-
-
-    });
 
 });
