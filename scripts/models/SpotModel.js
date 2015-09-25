@@ -8,7 +8,6 @@ module.exports = Backbone.Model.extend ({
 		restaurant_id: null,
 		user_id: null
 	},
-
 	urlRoot:'https://find-a-spot.herokuapp.com/',
 	idAttribute: '_id'
 });
