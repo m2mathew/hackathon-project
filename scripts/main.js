@@ -17,7 +17,7 @@ $(document).ready(function() {
     var $login = $('#login');
     var $restaurants = $('#restaurants');
     var $parkingSpots = $('#parking_spots');
-    var restaurantNameTemplate =_.template($('#restaurant-list').html());
+    var restaurantNameTemplate = _.template($('#restaurant-list').html());
     var restaurantDetailsTemplate = _.template($('#restaurant-details').html());
 
     var Router = Backbone.Router.extend({
@@ -48,23 +48,25 @@ $(document).ready(function() {
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
     restaurants.on('add', function(newRestaurantModel) {
-        
+
         var newName = restaurantNameTemplate(newRestaurantModel.toJSON());
         var $newName = $(newName);
-        console.log(newName);
+        // console.log(newName);
 
         $restaurants.append($newName);
-        console.log(newRestaurantModel);
+        // console.log(newRestaurantModel);
         var newDetailName = restaurantDetailsTemplate(newRestaurantModel.toJSON());
         var $newDetailName = $(newDetailName);
-        console.log(newDetailName);
+        // console.log(newDetailName);
 
 
         $newName.on('click', function() {
+
             $restaurants.hide();
             $parkingSpots.show();
-            $parkingSpots.append($newDetailName).append($newAddress).append($newZipcode).append($newImage);
-            
+            console.log($newDetailName[0]);
+            $parkingSpots.html('');
+            $parkingSpots.append($newDetailName[0]);
         });
 
     });
