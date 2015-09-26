@@ -94,7 +94,7 @@ header {
 
 .parking_lot_wrapper {
 	padding: 5px 30px 30px 30px; 
-	max-width: 300px;
+	max-width: 400px;
 
 	div {
 		background-color: $gray;
@@ -148,27 +148,37 @@ footer {
 
 /*-Parking Spots-*/
 
-.parking_lot_wrapper {
-	padding: 5px 30px 30px 30px; 
-	max-width: 300px;
+	.restaurant_addy {
+		max-width: 380px;
+	}
 
-	div {
-		background-color: $gray;
-		height: 60px;
-		width: 120px;
-		margin: 10px;
-		border-radius: 10px;
-		float: left;
-		display: inline-block;
+	.parking_lot_wrapper { 
+		max-width: 430px;
 
-		&:hover {
-			cursor: pointer;
+		div {
+			height: 90px;
+			width: 180px;
 		}
 	}
-}
 
 }
 
+@media screen and (min-width: 901px) {
 
+	.restaurant_left {
+		display: inline-block;
+		float: left;
+	}
+
+	.parking_lot_right {
+		float: left;
+		display: inline-block;
+		margin-left: 100px;
+
+		.restaurant_addy {
+			margin-top: 30px;
+		}
+	}	
+}
 
 

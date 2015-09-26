@@ -429,7 +429,7 @@ header {
 
 .parking_lot_wrapper {
   padding: 5px 30px 30px 30px;
-  max-width: 300px; }
+  max-width: 400px; }
   .parking_lot_wrapper div {
     background-color: #d5d8dc;
     height: 60px;
@@ -464,16 +464,21 @@ footer {
     header nav a {
       margin-right: 20px; }
   /*-Parking Spots-*/
+  .restaurant_addy {
+    max-width: 380px; }
   .parking_lot_wrapper {
-    padding: 5px 30px 30px 30px;
-    max-width: 300px; }
+    max-width: 430px; }
     .parking_lot_wrapper div {
-      background-color: #d5d8dc;
-      height: 60px;
-      width: 120px;
-      margin: 10px;
-      border-radius: 10px;
-      float: left;
-      display: inline-block; }
-      .parking_lot_wrapper div:hover {
-        cursor: pointer; } }
+      height: 90px;
+      width: 180px; } }
+
+@media screen and (min-width: 901px) {
+  .restaurant_left {
+    display: inline-block;
+    float: left; }
+  .parking_lot_right {
+    float: left;
+    display: inline-block;
+    margin-left: 100px; }
+    .parking_lot_right .restaurant_addy {
+      margin-top: 30px; } }
