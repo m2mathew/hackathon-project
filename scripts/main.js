@@ -69,7 +69,6 @@ $(document).ready(function() {
         var newDetailName = restaurantDetailsTemplate(newRestaurantModel.toJSON());
         var $newDetailName = $(newDetailName);
         var newUrl = newRestaurantModel.attributes.restaurant_img;
-        console.log(newUrl);
 
         // when the restaurant name is clicked, show/hide these pages
         $newName.on('click', function() {
@@ -104,6 +103,18 @@ $(document).ready(function() {
          *      -> newSpotsArray[i].available
          */
 
+        $.ajax({
+            type: 'PUT',
+            url: 'http://find-a-spot.herokuapp.com/spots',
+            data: {id: 1, available: false},
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
+
         if(newRestaurantModel.attributes.name === 'Hopdoddy') {
             for(var i = 0; i < newSpotsArray.length; i++) {
 
@@ -112,9 +123,9 @@ $(document).ready(function() {
 
                 // newRestaurantModel.save();
 
-                if(newSpotsArray[i].available === true){
-                    // console.log( 'YEAH!!!!');
-                }
+                // if(newSpotsArray[i].available === true){
+                //     // console.log( 'YEAH!!!!');
+                // }
             }
         }
 
