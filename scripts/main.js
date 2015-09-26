@@ -53,38 +53,77 @@ $(document).ready(function() {
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
     restaurants.on('add', function(newRestaurantModel) {
+        // console.log(newRestaurantModel);
 
+        // adding data to the 'restaurant name' template
         var newName = restaurantNameTemplate(newRestaurantModel.toJSON());
         var $newName = $(newName);
 
+        // adding data to the 'restaurant details' template
         $restaurants.append($newName);
         var newDetailName = restaurantDetailsTemplate(newRestaurantModel.toJSON());
         var $newDetailName = $(newDetailName);
 
+        // when the restaurant name is clicked, show/hide these pages
         $newName.on('click', function() {
             $restaurants.hide();
             $parkingSpots.show();
             $parkingSpots.html('');
             $parkingSpots.append($newDetailName[0]);
         });
+
+        // create an array of objects with parking spot information
+        var newSpotsArray = newRestaurantModel.get('spots');
+        // console.log(newSpotsArray);
+
+        var spot1 = newSpotsArray[0].id;
+        var spot2 = newSpotsArray[1].id;
+        var spot3 = newSpotsArray[2].id;
+        var spot4 = newSpotsArray[3].id;
+        var spot5 = newSpotsArray[4].id;
+        var spot6 = newSpotsArray[5].id;
+        var spot7 = newSpotsArray[6].id;
+        var spot8 = newSpotsArray[7].id;
+
+        /* target the restaurant id
+         *      -> newSpotsArray[i].restaurant_id
+         * target the specific id for the spot
+         *      -> newSpotsArray[i].id
+         * target the available boolean value of the spot
+         *      -> newSpotsArray[i].available
+         */
+
+        if(newRestaurantModel.attributes.name === 'Hopdoddy') {
+            for(var i = 0; i < newSpotsArray.length; i++) {
+
+                newSpotsArray[i].available = 'false';
+                console.log(newSpotsArray[i].available);
+
+                // newRestaurantModel.save();
+
+                if(newSpotsArray[i].available === true){
+                    console.log( 'YEAH!!!!');
+                }
+            }
+        }
+
+        // spots.fetch();
+            // console.log(spots.models);
+
     });
 
-    spots.fetch();
-    spots.on('add', function() {
-        console.log(this.model);
-
-        var newSpotRestaurant = this.model.get('restaurant_name');
-        var newSpot = this.model.get('spot_num');
-        var availableSpot = this.model.get('available');
+    //     var newSpotRestaurant = this.model.get('restaurant_name');
+    //     var newSpot = this.model.get('spot_num');
+    //     var availableSpot = this.model.get('available');
 
 
-            if(availableSpot === false)
-                this.model.set({
-                    available: !this.model.get('available')
-                });
+    //         if(availableSpot === false)
+    //             this.model.set({
+    //                 available: !this.model.get('available')
+    //             });
 
 
-    });
+    // });
 
 
     // future user data interaction
