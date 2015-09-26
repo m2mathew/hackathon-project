@@ -83,18 +83,31 @@ header {
 .restaurant_addy {
 	font-family: $body-font;
 	font-size: 1.25em;
-	margin: 30px;
+	margin: 50px 30px 5px 40px;
 	color: $navy;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top: solid $navy 3px;
+	border-bottom: solid $navy 3px;
+	max-width: 260px;
 }
 
 .parking_lot_wrapper {
-	padding: 50px 30px;
+	padding: 5px 30px 30px 30px; 
+	max-width: 300px;
 
 	div {
-		background-color: black;
-		height: 50px;
-		width: 100px;
+		background-color: $gray;
+		height: 60px;
+		width: 120px;
 		margin: 10px;
+		border-radius: 10px;
+		float: left;
+		display: inline-block;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
@@ -104,6 +117,8 @@ section {
 	background-color: $blue;
 	padding-bottom: 50px;
 	padding-top: 1px;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 /*-Footer-*/
@@ -112,9 +127,12 @@ footer {
 	width: 100%;
 	height: 50px;
 	background-color: $navy;
+	clear: both;
 }
 
 @media screen and (min-width: 501px) {
+
+/*-Header-*/
 
 	header {
 		nav {
@@ -126,6 +144,28 @@ footer {
 			}
 		}
 	}
+
+
+/*-Parking Spots-*/
+
+.parking_lot_wrapper {
+	padding: 5px 30px 30px 30px; 
+	max-width: 300px;
+
+	div {
+		background-color: $gray;
+		height: 60px;
+		width: 120px;
+		margin: 10px;
+		border-radius: 10px;
+		float: left;
+		display: inline-block;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
 
 }
 
