@@ -6,7 +6,8 @@ module.exports = Backbone.Model.extend ({
 		name: '',
 		street_address: '',
 		zipcode: '',
-		restaurant_img: ''
+		restaurant_img: '',
+        spots: []
 	},
 	urlRoot:'https://find-a-spot.herokuapp.com/restaurants',
 	idAttribute: 'id'
