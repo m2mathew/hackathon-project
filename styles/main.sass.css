@@ -384,12 +384,15 @@ header {
       padding: 10px;
       display: inline-block;
       margin: 20px 10px; }
+      header nav a:hover {
+        color: #1a242f;
+        background-color: #f29c11; }
 
 /*-Sections styling-*/
 .subheader_directions {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  font-size: 1.3em;
+  font-size: 1.7em;
   color: #2c3e50;
   padding: 30px; }
 
@@ -400,7 +403,17 @@ header {
   font-weight: 700;
   color: #d5d8dc;
   font-size: 2em;
-  margin: 10px; }
+  margin: 20px;
+  max-width: 200px;
+  background-size: cover; }
+  .new-restaurant:hover {
+    cursor: pointer;
+    background-color: #86220a;
+    color: #828b96; }
+
+.dash-border {
+  border-bottom: 3px dashed #f5b041;
+  margin: 20px; }
 
 /*-background styling-*/
 section {

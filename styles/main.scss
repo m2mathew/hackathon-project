@@ -34,7 +34,12 @@ header {
 			border-radius: 20px;
 			padding: 10px;
 			display: inline-block;
-			margin: 20px 10px
+			margin: 20px 10px;
+
+			&:hover {
+				color: darken($navy,10%);
+				background-color: darken($yellow,10%);
+			}
 		}
 	}
 }
@@ -44,7 +49,7 @@ header {
 .subheader_directions {
 	font-family: $subheader-font;
 	font-weight: 400;
-	font-size: 1.3em;
+	font-size: 1.7em;
 	color: $navy;
 	padding: 30px;
 }
@@ -56,14 +61,22 @@ header {
 	font-weight: 700;
 	color: $gray;
 	font-size: 2em;
-	margin: 10px;
+	margin: 20px;
+	max-width: 200px;
+	// background: url('');
+	background-size: cover;
+
+	&:hover {
+		cursor: pointer;
+		background-color: darken($orange,30%);
+		color: darken($gray,30%);
+	}
 }
 
-// .new-restaurant::before {
-// 	content: "nope";
-// 	width: 90%;
-// 	border-bottom: 3px dashed $yellow;
-// }
+.dash-border {
+	border-bottom: 3px dashed $yellow;
+	margin: 20px;
+}
 
 /*-background styling-*/
 
@@ -79,3 +92,11 @@ footer {
 	height: 50px;
 	background-color: $navy;
 }
+
+@media screen and (min-width: 501px) {
+
+}
+
+
+
+
