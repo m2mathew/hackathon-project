@@ -403,7 +403,7 @@ header {
   font-weight: 700;
   color: #d5d8dc;
   font-size: 2em;
-  margin: 20px;
+  margin: 30px;
   max-width: 200px;
   background-size: cover; }
   .new-restaurant:hover {
@@ -412,16 +412,39 @@ header {
     color: #828b96; }
 
 .dash-border {
-  border-bottom: 3px dashed #f5b041;
+  border-bottom: 4px dashed #f5b041;
   margin: 20px; }
+
+/*-parking page-*/
+.restaurant_addy {
+  font-family: "Lato", sans-serif;
+  font-size: 1.25em;
+  margin: 30px;
+  color: #2c3e50; }
+
+.parking_lot_wrapper {
+  padding: 50px 30px; }
+  .parking_lot_wrapper div {
+    background-color: black;
+    height: 50px;
+    width: 100px;
+    margin: 10px; }
 
 /*-background styling-*/
 section {
   background-color: #47ADBE;
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  padding-top: 1px; }
 
 /*-Footer-*/
 footer {
   width: 100%;
   height: 50px;
   background-color: #2c3e50; }
+
+@media screen and (min-width: 501px) {
+  header nav {
+    clear: none;
+    float: right; }
+    header nav a {
+      margin-right: 20px; } }
