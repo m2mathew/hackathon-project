@@ -27,19 +27,6 @@
 			</section>
 
 			<section id="parking_spots">
-				<div class="subheader_directions">
-				Select your parking spot to reserve space for 30 minutes
-				</div>
-				<div class="parking_lot_wrapper">
-					<div id="parking_spot_1">p</div>
-					<div id="parking_spot_2">p</div>
-					<div id="parking_spot_3">p</div>
-					<div id="parking_spot_4">p</div>
-					<div id="parking_spot_5">p</div>
-					<div id="parking_spot_6">p</div>
-					<div id="parking_spot_7">p</div>
-					<div id="parking_spot_8">p</div>
-				</div>
 			</section>
 		</div>
 		<footer>
@@ -54,10 +41,22 @@
     </script>
     <script type="text/template" id="restaurant-details">
         <div class="restaurant-info">
-            <%= name %>
-            <%= street_address %>
-            <%= zipcode %>
-            <%= restaurant_img %>
+            <div class="subheader_directions">
+				Select your parking spot to reserve space for 30 minutes
+			</div>
+            <div class="dash-border"></div>
+            <div class="new-restaurant"><%= name %></div>
+            <div class="restaurant_addy"><%= street_address %></div>
+            <div class="parking_lot_wrapper">
+				<div id="parking_spot_1">p</div>
+				<div id="parking_spot_2">p</div>
+				<div id="parking_spot_3">p</div>
+				<div id="parking_spot_4">p</div>
+				<div id="parking_spot_5">p</div>
+				<div id="parking_spot_6">p</div>
+				<div id="parking_spot_7">p</div>
+				<div id="parking_spot_8">p</div>
+			</div>
         </div>
     </script>
 </body>

@@ -61,7 +61,7 @@ header {
 	font-weight: 700;
 	color: $gray;
 	font-size: 2em;
-	margin: 20px;
+	margin: 30px;
 	max-width: 200px;
 	// background: url('');
 	background-size: cover;
@@ -74,8 +74,28 @@ header {
 }
 
 .dash-border {
-	border-bottom: 3px dashed $yellow;
+	border-bottom: 4px dashed $yellow;
 	margin: 20px;
+}
+
+/*-parking page-*/
+
+.restaurant_addy {
+	font-family: $body-font;
+	font-size: 1.25em;
+	margin: 30px;
+	color: $navy;
+}
+
+.parking_lot_wrapper {
+	padding: 50px 30px;
+
+	div {
+		background-color: black;
+		height: 50px;
+		width: 100px;
+		margin: 10px;
+	}
 }
 
 /*-background styling-*/
@@ -83,6 +103,7 @@ header {
 section {
 	background-color: $blue;
 	padding-bottom: 50px;
+	padding-top: 1px;
 }
 
 /*-Footer-*/
@@ -94,6 +115,17 @@ footer {
 }
 
 @media screen and (min-width: 501px) {
+
+	header {
+		nav {
+			clear: none;
+			float: right;
+
+			a {
+				margin-right: 20px;
+			}
+		}
+	}
 
 }
 
