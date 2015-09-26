@@ -22,9 +22,14 @@ $(document).ready(function() {
 
     var Router = Backbone.Router.extend({
         routes: {
-            '': 'showRestaurants',
+            '': 'showAllRestaurants',
             'restaurants': 'showRestaurants',
             'login': 'goToLogin'
+        },
+        showAllRestaurants: function() {
+            console.log('Find a spot logo clicked');
+            $('section').hide();
+            $restaurants.show();
         },
         showRestaurants: function() {
             console.log('restraurants link clicked');
@@ -53,7 +58,7 @@ $(document).ready(function() {
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
     restaurants.on('add', function(newRestaurantModel) {
-        // console.log(newRestaurantModel);
+        // console.log(newRestaurantModel.attributes.restaurant_img);
 
         // adding data to the 'restaurant name' template
         var newName = restaurantNameTemplate(newRestaurantModel.toJSON());
@@ -63,12 +68,16 @@ $(document).ready(function() {
         $restaurants.append($newName);
         var newDetailName = restaurantDetailsTemplate(newRestaurantModel.toJSON());
         var $newDetailName = $(newDetailName);
+        var newUrl = newRestaurantModel.attributes.restaurant_img;
+        console.log(newUrl);
 
         // when the restaurant name is clicked, show/hide these pages
         $newName.on('click', function() {
             $restaurants.hide();
             $parkingSpots.show();
             $parkingSpots.html('');
+            $(this).css({ backgroundImage: newUrl });
+
             $parkingSpots.append($newDetailName[0]);
         });
 
@@ -87,8 +96,10 @@ $(document).ready(function() {
 
         /* target the restaurant id
          *      -> newSpotsArray[i].restaurant_id
+         *
          * target the specific id for the spot
          *      -> newSpotsArray[i].id
+         *
          * target the available boolean value of the spot
          *      -> newSpotsArray[i].available
          */
@@ -97,15 +108,17 @@ $(document).ready(function() {
             for(var i = 0; i < newSpotsArray.length; i++) {
 
                 newSpotsArray[i].available = 'false';
-                console.log(newSpotsArray[i].available);
+                // console.log(newSpotsArray[i].available);
 
                 // newRestaurantModel.save();
 
                 if(newSpotsArray[i].available === true){
-                    console.log( 'YEAH!!!!');
+                    // console.log( 'YEAH!!!!');
                 }
             }
         }
+
+        // model.set.css{textDecoriation: 'none'}
 
         // spots.fetch();
             // console.log(spots.models);
