@@ -419,32 +419,61 @@ header {
 .restaurant_addy {
   font-family: "Lato", sans-serif;
   font-size: 1.25em;
-  margin: 30px;
-  color: #2c3e50; }
+  margin: 50px 30px 5px 40px;
+  color: #2c3e50;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: solid #2c3e50 3px;
+  border-bottom: solid #2c3e50 3px;
+  max-width: 260px; }
 
 .parking_lot_wrapper {
-  padding: 50px 30px; }
+  padding: 5px 30px 30px 30px;
+  max-width: 300px; }
   .parking_lot_wrapper div {
-    background-color: black;
-    height: 50px;
-    width: 100px;
-    margin: 10px; }
+    background-color: #d5d8dc;
+    height: 60px;
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    float: left;
+    display: inline-block; }
+    .parking_lot_wrapper div:hover {
+      cursor: pointer; }
 
 /*-background styling-*/
 section {
   background-color: #47ADBE;
   padding-bottom: 50px;
-  padding-top: 1px; }
+  padding-top: 1px;
+  box-sizing: border-box;
+  overflow: hidden; }
 
 /*-Footer-*/
 footer {
   width: 100%;
   height: 50px;
-  background-color: #2c3e50; }
+  background-color: #2c3e50;
+  clear: both; }
 
 @media screen and (min-width: 501px) {
+  /*-Header-*/
   header nav {
     clear: none;
     float: right; }
     header nav a {
-      margin-right: 20px; } }
+      margin-right: 20px; }
+  /*-Parking Spots-*/
+  .parking_lot_wrapper {
+    padding: 5px 30px 30px 30px;
+    max-width: 300px; }
+    .parking_lot_wrapper div {
+      background-color: #d5d8dc;
+      height: 60px;
+      width: 120px;
+      margin: 10px;
+      border-radius: 10px;
+      float: left;
+      display: inline-block; }
+      .parking_lot_wrapper div:hover {
+        cursor: pointer; } }
