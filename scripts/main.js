@@ -80,6 +80,13 @@ $(document).ready(function() {
             $parkingSpots.append($newDetailName[0]);
 
             var spot1 = newSpotsArray[0];
+            var spot2 = newSpotsArray[1];
+            var spot3 = newSpotsArray[2];
+            var spot4 = newSpotsArray[3];
+            var spot5 = newSpotsArray[4];
+            var spot6 = newSpotsArray[5];
+            var spot7 = newSpotsArray[6];
+            var spot8 = newSpotsArray[7];
 
             var $spot1 = $('#parking_spot_1');
             var $spot2 = $('#parking_spot_2');
@@ -94,37 +101,72 @@ $(document).ready(function() {
                 console.log('spot1 was clicked');
                 var spotModel = new SpotModel(spot1);
                 spotModel.save({
-                    available: false
+                    available: true
                 });
                 $(this).toggleClass('taken');
              });
 
             $spot2.on('click', function() {
                 console.log('spot2 was clicked');
+                var spotModel = new SpotModel(spot2);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot3.on('click', function() {
                 console.log('spot3 was clicked');
+                var spotModel = new SpotModel(spot3);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot4.on('click', function() {
                 console.log('spot4 was clicked');
+                var spotModel = new SpotModel(spot4);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot5.on('click', function() {
                 console.log('spot5 was clicked');
+                var spotModel = new SpotModel(spot5);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot6.on('click', function() {
                 console.log('spot6 was clicked');
+                var spotModel = new SpotModel(spot6);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot7.on('click', function() {
                 console.log('spot7 was clicked');
+                var spotModel = new SpotModel(spot7);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
             $spot8.on('click', function() {
                 console.log('spot8 was clicked');
+                var spotModel = new SpotModel(spot8);
+                spotModel.save({
+                    available: true
+                });
+                $(this).toggleClass('taken');
             });
 
         });
