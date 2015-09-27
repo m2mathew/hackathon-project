@@ -1,5 +1,6 @@
 'use strict';
 var Backbone = require('backbone');
+
 module.exports = Backbone.Model.extend ({
 	defaults: {
 		id: null,
@@ -8,6 +9,6 @@ module.exports = Backbone.Model.extend ({
 		restaurant_id: null,
 		user_id: null
 	},
-	urlRoot:'http://find-a-spot.herokuapp.com/spots',
+	urlRoot:'http://find-a-spot.herokuapp.com/spots/',
 	idAttribute: 'id'
 });
