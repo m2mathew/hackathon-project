@@ -366,10 +366,15 @@ header {
     font-weight: 700;
     font-size: 2em;
     text-decoration: none;
-    color: #f05c39;
-    padding: 20px;
-    float: left;
-    display: block; }
+    color: #f05c39; }
+    header #logo svg {
+      height: 60px;
+      width: 60px;
+      margin: 20px 3px 20px 20px; }
+    header #logo span {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 40px; }
   header nav {
     clear: both;
     text-align: center; }
@@ -419,7 +424,7 @@ header {
 .restaurant_addy {
   font-family: "Lato", sans-serif;
   font-size: 1.25em;
-  margin: 50px 30px 5px 40px;
+  margin: 50px 30px 5px 30px;
   color: #2c3e50;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -428,7 +433,7 @@ header {
   max-width: 260px; }
 
 .parking_lot_wrapper {
-  padding: 5px 30px 30px 30px;
+  padding: 5px 30px 30px 20px;
   max-width: 400px; }
   .parking_lot_wrapper div {
     background-color: #d5d8dc;
@@ -475,7 +480,8 @@ footer {
 @media screen and (min-width: 901px) {
   .restaurant_left {
     display: inline-block;
-    float: left; }
+    float: left;
+    min-width: 200px; }
   .parking_lot_right {
     float: left;
     display: inline-block;

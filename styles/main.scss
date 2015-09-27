@@ -15,9 +15,18 @@ header {
 		font-size: 2em;
 		text-decoration: none;
 		color: $orange;
-		padding: 20px;
-		float: left;
-		display: block;
+
+		svg {
+			height: 60px;
+			width: 60px;
+			margin: 20px 3px 20px 20px;
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: top;
+			margin-top: 40px;
+		}
 	}
 
 	nav {
@@ -83,7 +92,7 @@ header {
 .restaurant_addy {
 	font-family: $body-font;
 	font-size: 1.25em;
-	margin: 50px 30px 5px 40px;
+	margin: 50px 30px 5px 30px;
 	color: $navy;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -93,7 +102,7 @@ header {
 }
 
 .parking_lot_wrapper {
-	padding: 5px 30px 30px 30px; 
+	padding: 5px 30px 30px 20px; 
 	max-width: 400px;
 
 	div {
@@ -168,6 +177,7 @@ footer {
 	.restaurant_left {
 		display: inline-block;
 		float: left;
+		min-width: 200px;
 	}
 
 	.parking_lot_right {
