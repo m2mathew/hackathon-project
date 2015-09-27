@@ -4,6 +4,8 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 var _ = require('backbone/node_modules/underscore');
 
+var RestaurantView = require('./views/RestaurantView.js');
+
 var SpotModel = require('./models/SpotModel.js');
 var RestaurantModel = require('./models/RestaurantModel.js');
 var UserModel = require('./models/UserModel.js');
@@ -17,16 +19,9 @@ $(document).ready(function() {
     var $login = $('#login');
     var $restaurants = $('#restaurants');
     var $parkingSpots = $('#parking_spots');
+
     var restaurantNameTemplate = _.template($('#restaurant-list').html());
     var restaurantDetailsTemplate = _.template($('#restaurant-details').html());
-    var $spot1 = $('#parking_spot_1');
-    var $spot2 = $('#parking_spot_2');
-    var $spot3 = $('#parking_spot_3');
-    var $spot4 = $('#parking_spot_4');
-    var $spot5 = $('#parking_spot_5');
-    var $spot6 = $('#parking_spot_6');
-    var $spot7 = $('#parking_spot_7');
-    var $spot8 = $('#parking_spot_8');
 
     var Router = Backbone.Router.extend({
         routes: {
@@ -54,14 +49,24 @@ $(document).ready(function() {
     var r = new Router();
     Backbone.history.start();
 
-    $('header').show();
-    $('nav').show();
-    $('section').hide();
-    $restaurants.show();
-
     var restaurants = new RestaurantCollection();
     var users = new UserCollection();
     var spots = new SpotCollection();
+    var rest1 = new RestaurantView();
+
+    // $('header').show();
+    // $('nav').show();
+    // $('section').hide();
+    // $restaurants.show();
+
+    var $spot1 = $('#parking_spot_1');
+    var $spot2 = $('#parking_spot_2');
+    var $spot3 = $('#parking_spot_3');
+    var $spot4 = $('#parking_spot_4');
+    var $spot5 = $('#parking_spot_5');
+    var $spot6 = $('#parking_spot_6');
+    var $spot7 = $('#parking_spot_7');
+    var $spot8 = $('#parking_spot_8');
 
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
@@ -111,7 +116,7 @@ $(document).ready(function() {
          *      -> newSpotsArray[i].available
          */
 
-        console.log($('this'));
+        // console.log($('this'));
 
         $spot1.on('click', function() {
             console.log('spot1 was clicked');
@@ -145,59 +150,33 @@ $(document).ready(function() {
             console.log('spot8 was clicked');
          });
 
-        // $.ajax({
-        //     type: 'PUT',
-        //     url: 'http://find-a-spot.herokuapp.com/spots',
-        //     data: {id: 1, available: false},
-        //     success: function(response) {
-        //         console.log(response);
-        //     },
-        //     error: function(response) {
-        //          console.log(response);
+
+        if(newRestaurantModel.attributes.name === 'Hopdoddy' && newSpotsArray[0].id === 2) {
+            $.ajax({
+                type: 'PUT',
+                url: 'http://find-a-spot.herokuapp.com/spots/1',
+                data: {available: false},
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(response) {
+                     console.log(response);
+                }
+            });
+        };
+
+        // if(newRestaurantModel.attributes.name === 'Hopdoddy') {
+        //     for(var i = 0; i < newSpotsArray.length; i++) {
+
+        //         // newSpotsArray[i].available = '';
+        //         // console.log(newSpotsArray[i].available);
+
+
+
+        //         // if(newSpotsArray[i].available === true){
+        //         //     // console.log( 'YEAH!!!!');
+        //         // }
         //     }
-        // });
-
-        if(newRestaurantModel.attributes.name === 'Hopdoddy') {
-            for(var i = 0; i < newSpotsArray.length; i++) {
-
-                newSpotsArray[i].available = 'false';
-                // console.log(newSpotsArray[i].available);
-
-                // newRestaurantModel.save();
-
-                // if(newSpotsArray[i].available === true){
-                //     // console.log( 'YEAH!!!!');
-                // }
-            }
-        }
-
-        // model.set.css{textDecoriation: 'none'}
-
-        // spots.fetch();
-            // console.log(spots.models);
-
+        // }
     });
-
-    //     var newSpotRestaurant = this.model.get('restaurant_name');
-    //     var newSpot = this.model.get('spot_num');
-    //     var availableSpot = this.model.get('available');
-
-
-    //         if(availableSpot === false)
-    //             this.model.set({
-    //                 available: !this.model.get('available')
-    //             });
-
-
-    // });
-
-
-    // future user data interaction
-    // users.fetch();
-    // users.on('add', function() {
-    //     console.log(this.models);
-    //     this.render;
-    // });
-
-
 });
