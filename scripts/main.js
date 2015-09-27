@@ -19,6 +19,14 @@ $(document).ready(function() {
     var $parkingSpots = $('#parking_spots');
     var restaurantNameTemplate = _.template($('#restaurant-list').html());
     var restaurantDetailsTemplate = _.template($('#restaurant-details').html());
+    var $spot1 = $('#parking_spot_1');
+    var $spot2 = $('#parking_spot_2');
+    var $spot3 = $('#parking_spot_3');
+    var $spot4 = $('#parking_spot_4');
+    var $spot5 = $('#parking_spot_5');
+    var $spot6 = $('#parking_spot_6');
+    var $spot7 = $('#parking_spot_7');
+    var $spot8 = $('#parking_spot_8');
 
     var Router = Backbone.Router.extend({
         routes: {
@@ -103,17 +111,51 @@ $(document).ready(function() {
          *      -> newSpotsArray[i].available
          */
 
-        $.ajax({
-            type: 'PUT',
-            url: 'http://find-a-spot.herokuapp.com/spots',
-            data: {id: 1, available: false},
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(response) {
-                console.log(response);
-            }
-        });
+        console.log($('this'));
+
+        $spot1.on('click', function() {
+            console.log('spot1 was clicked');
+         });
+
+        $spot2.on('click', function() {
+            console.log('spot2 was clicked');
+         });
+
+        $spot3.on('click', function() {
+            console.log('spot3 was clicked');
+         });
+
+        $spot4.on('click', function() {
+            console.log('spot4 was clicked');
+         });
+
+        $spot5.on('click', function() {
+            console.log('spot5 was clicked');
+         });
+
+        $spot6.on('click', function() {
+            console.log('spot6 was clicked');
+         });
+
+        $spot7.on('click', function() {
+            console.log('spot7 was clicked');
+         });
+
+        $spot8.on('click', function() {
+            console.log('spot8 was clicked');
+         });
+
+        // $.ajax({
+        //     type: 'PUT',
+        //     url: 'http://find-a-spot.herokuapp.com/spots',
+        //     data: {id: 1, available: false},
+        //     success: function(response) {
+        //         console.log(response);
+        //     },
+        //     error: function(response) {
+        //          console.log(response);
+        //     }
+        // });
 
         if(newRestaurantModel.attributes.name === 'Hopdoddy') {
             for(var i = 0; i < newSpotsArray.length; i++) {
