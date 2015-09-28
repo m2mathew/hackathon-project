@@ -82,11 +82,11 @@ $(document).ready(function() {
 
             var thisSpotId = spot1.id;
             var thisSpotAvailable = spot1.available;
-            if(spot1.available === true) {
-                $(this).css('background', '#fff');
-                console.log($(this));
-                console.log('yayess!');
-            }
+            // if(spot1.available === true) {
+            //     $(this).css('background', '#fff');
+            //     console.log($(this));
+            //     console.log('yayess!');
+            // }
             console.log(thisSpotId, thisSpotAvailable);
 
             // if(thisSpotAvailable === true) {
