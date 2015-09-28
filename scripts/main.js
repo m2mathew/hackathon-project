@@ -316,11 +316,5 @@ $(document).ready(function() {
         var newSpotsArray = newRestaurantModel.get('spots');
         // console.log(newSpotsArray[0].available.toJSON());
 
-
-        // for(var i = 0; i < newSpotsArray.lenth; i++) {
-
-        //     }
-        // }
-
     });
 });
