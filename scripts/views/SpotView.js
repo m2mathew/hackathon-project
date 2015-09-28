@@ -8,6 +8,7 @@ var RestaurantModel = require('../models/RestaurantModel.js');
 module.exports = Backbone.View.extend({
     // template: _.template($('#restaurant-details').html()),
     tagName: 'div',
+    className: 'whatever',
     initialize: function(options) {
         _.bindAll(
             this,
@@ -19,10 +20,10 @@ module.exports = Backbone.View.extend({
     render: function() {
         // this.$el.html(this.template(this.model.toJSON()));
 
-        if(!this.model.attributes.spots[0].available) {
-            console.log('this was run!!');
-            this.$el.css({ background: '#F5B041' });
-        }
+        // if(!this.model.attributes.spots[0].available) {
+        //     console.log('this was run!!');
+            // this.$el.css({ background: '#F5B041' });
+        // }
     }
 });
 
