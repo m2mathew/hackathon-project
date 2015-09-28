@@ -19,7 +19,7 @@ header {
 		svg {
 			height: 60px;
 			width: 60px;
-			margin: 20px 3px 20px 20px;
+			margin: 20px 0 0 20px;
 		}
 
 		span {
@@ -106,7 +106,7 @@ header {
 	max-width: 400px;
 
 	div {
-		background-color: $gray;
+		background-color: $navy;
 		height: 60px;
 		width: 120px;
 		margin: 10px;
@@ -117,7 +117,70 @@ header {
 		&:hover {
 			cursor: pointer;
 		}
+
 	}
+}
+
+/*-Sign in page-*/
+
+.box {
+  margin: 50px auto;
+  width:400px;
+  height:200px;
+}
+
+input[type="email"] {
+	font-family: $body-font;
+	appearance: none;
+	width:	380px;
+	height:	70px;
+	font-size:	3em;
+	background:	transparent;
+	border:	none;
+	border-bottom: dashed 3px $gray;
+	text-align:	center;
+	transition: border-color 0.6s ease;
+}
+
+::-webkit-input-placeholder {
+	color: $yellow;
+	transition: color 0.3s ease;
+}
+
+:focus::-webkit-input-placeholder {
+	color: transparent;
+	transition: color 0.3s ease;
+}
+
+
+input[type="email"]:focus {
+	outline: none;
+	border:	none;
+	border-bottom: dashed 3px $yellow;
+	transition: border-color 1s ease;
+}
+
+input[type="submit"] {
+	font-family: $body-font;
+	color: $gray;
+	appearance: none;
+	width:	380px;
+	height:	50px;
+	font-size:	1.05em;
+	background:	transparent;
+	border:	none;
+	text-align:	center;
+	letter-spacing:	0.15em;
+	text-transform:	uppercase;
+	transition: color 0.5s ease;
+	outline: none;
+	border:	none;
+}
+
+input[type="submit"]:hover {
+	color: $navy;
+	cursor:pointer;
+	transition: color 0.5s ease;
 }
 
 /*-background styling-*/

@@ -370,7 +370,7 @@ header {
     header #logo svg {
       height: 60px;
       width: 60px;
-      margin: 20px 3px 20px 20px; }
+      margin: 20px 0 0 20px; }
     header #logo span {
       display: inline-block;
       vertical-align: top;
@@ -436,7 +436,7 @@ header {
   padding: 5px 30px 30px 20px;
   max-width: 400px; }
   .parking_lot_wrapper div {
-    background-color: #d5d8dc;
+    background-color: #2c3e50;
     height: 60px;
     width: 120px;
     margin: 10px;
@@ -445,6 +445,59 @@ header {
     display: inline-block; }
     .parking_lot_wrapper div:hover {
       cursor: pointer; }
+
+/*-Sign in page-*/
+.box {
+  margin: 50px auto;
+  width: 400px;
+  height: 200px; }
+
+input[type="email"] {
+  font-family: "Lato", sans-serif;
+  appearance: none;
+  width: 380px;
+  height: 70px;
+  font-size: 3em;
+  background: transparent;
+  border: none;
+  border-bottom: dashed 3px #d5d8dc;
+  text-align: center;
+  transition: border-color 0.6s ease; }
+
+::-webkit-input-placeholder {
+  color: #f5b041;
+  transition: color 0.3s ease; }
+
+:focus::-webkit-input-placeholder {
+  color: transparent;
+  transition: color 0.3s ease; }
+
+input[type="email"]:focus {
+  outline: none;
+  border: none;
+  border-bottom: dashed 3px #f5b041;
+  transition: border-color 1s ease; }
+
+input[type="submit"] {
+  font-family: "Lato", sans-serif;
+  color: #d5d8dc;
+  appearance: none;
+  width: 380px;
+  height: 50px;
+  font-size: 1.05em;
+  background: transparent;
+  border: none;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+  outline: none;
+  border: none; }
+
+input[type="submit"]:hover {
+  color: #2c3e50;
+  cursor: pointer;
+  transition: color 0.5s ease; }
 
 /*-background styling-*/
 section {
