@@ -106,7 +106,7 @@ header {
 	max-width: 400px;
 
 	div {
-		background-color: $gray;
+		background-color: $navy;
 		height: 60px;
 		width: 120px;
 		margin: 10px;
@@ -117,6 +117,7 @@ header {
 		&:hover {
 			cursor: pointer;
 		}
+
 	}
 }
 
