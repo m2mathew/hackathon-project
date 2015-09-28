@@ -13,21 +13,34 @@ module.exports = Backbone.View.extend({
             this,
             'render'
             );
+        this.$el.on('click', this.toggleSpot);
         this.model.on('change', this.render);
         this.render();
     },
     render: function() {
-        // var newSpot = this.model.get('spots');
-        // console.log(newSpot);
-        // $('header').show();
-        // $('nav').show();
-        // $('section').hide();
-        // $restaurants.show();
+        $('header').show();
+        $('nav').show();
+        $('section').hide();
+        $('#restaurants').show();
+        console.log(this.$el);
 
         this.$el.html(this.template(this.model.toJSON()));
-
     },
-
-
-
+    toggleSpot: function() {
+        // var spotModel = new SpotModel(spot1);
+        // if(!this.$el.available) {
+        //     spotModel.save({
+        //         available: true
+        //     });
+        //     this.$el.css({ background: '#D5D8DC' });
+        //     console.log('Spot 1 taken');
+        // }
+        // else {
+        //     spotModel.save({
+        //         available: false
+        //     });
+        //     this.$el.css({ background: '#F5B041' });
+        //     console.log('spot 1 is now yellow!');
+        // }
+    }
 });

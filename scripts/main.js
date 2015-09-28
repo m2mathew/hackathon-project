@@ -5,6 +5,7 @@ var $ = require('jquery');
 var _ = require('backbone/node_modules/underscore');
 
 var RestaurantView = require('./views/RestaurantView.js');
+var SpotView = require('./views/SpotView.js');
 
 var SpotModel = require('./models/SpotModel.js');
 var RestaurantModel = require('./models/RestaurantModel.js');
@@ -27,7 +28,7 @@ $(document).ready(function() {
             '': 'showRestaurants',
             'restaurants': 'showRestaurants',
             'login': 'goToLogin',
-            'restaurant/:type/:id': 'restaurantDetails'
+            'parking': 'restaurantDetails'
         },
         showRestaurants: function() {
             console.log('restraurants link clicked');
@@ -39,8 +40,8 @@ $(document).ready(function() {
             $('section').hide();
             $login.show();
         },
-        restaurantDetails: function(type, id) {
-            console.log('details', id);
+        restaurantDetails: function(id) {
+            console.log(id);
         }
     });
 
@@ -50,36 +51,48 @@ $(document).ready(function() {
     var restaurants = new RestaurantCollection();
     var users = new UserCollection();
     var spots = new SpotCollection();
-    // var rest1 = new RestaurantView();
-
-
-    // $('header').show();
-    // $('nav').show();
-    // $('section').hide();
-    // $restaurants.show();
 
     // get the name of restaurant from each collection to put in the HTML element
     restaurants.fetch();
     spots.fetch();
     restaurants.on('add', function(newRestaurantModel) {
-        // console.log(newRestaurantModel.attributes.restaurant_img);
 
         var restView = new RestaurantView({ model: newRestaurantModel, collection: spots });
         $restaurants.append(restView.$el);
 
-
-        var newDetailName = restaurantDetailsTemplate(newRestaurantModel.toJSON());
-        var $newDetailName = $(newDetailName);
+        var spotView = new SpotView({ model: newRestaurantModel });
+        // var newRestaurantDetails = restaurantDetailsTemplate(newRestaurantModel.toJSON());
+        // var $newRestaurantDetails = $(newRestaurantDetails);
+        // console.log($newRestaurantDetails.get());
 
         // when the restaurant name is clicked, show/hide these pages
         restView.$el.on('click', function() {
-            $restaurants.hide();
-            $parkingSpots.show();
+            $('header').show();
+            $('nav').show();
+            $('section').hide();
+            $('#parking_spots').show();
             $parkingSpots.html('');
 
-            $parkingSpots.append($newDetailName[0]);
+            // $parkingSpots.append($newRestaurantDetails[0]);
 
             var spot1 = newSpotsArray[0];
+
+            var thisSpotId = spot1.id;
+            var thisSpotAvailable = spot1.available;
+            if(spot1.available === true) {
+                $(this).css('background', '#fff');
+                console.log($(this));
+                console.log('yayess!');
+            }
+            console.log(thisSpotId, thisSpotAvailable);
+
+            // if(thisSpotAvailable === true) {
+            //     $($parking_spots).css({ background: '#D5D8DC' });
+            //     }
+            // if(thisSpotAvailable === false) {
+            //     $(this).css({ background: '#F5B041' });
+            // }
+
             var spot2 = newSpotsArray[1];
             var spot3 = newSpotsArray[2];
             var spot4 = newSpotsArray[3];
@@ -100,129 +113,211 @@ $(document).ready(function() {
             $spot1.on('click', function() {
                 console.log('spot1 was clicked');
                 var spotModel = new SpotModel(spot1);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 1 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 1 is now yellow!');
+                }
              });
 
             $spot2.on('click', function() {
                 console.log('spot2 was clicked');
                 var spotModel = new SpotModel(spot2);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot2.id;
+                var thisSpotAvailable = spot2.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 2 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 2 is now yellow!');
+                }
             });
 
             $spot3.on('click', function() {
                 console.log('spot3 was clicked');
                 var spotModel = new SpotModel(spot3);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot3.id;
+                var thisSpotAvailable = spot3.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 3 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 3 is now yellow!');
+                }
             });
 
             $spot4.on('click', function() {
                 console.log('spot4 was clicked');
                 var spotModel = new SpotModel(spot4);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot4.id;
+                var thisSpotAvailable = spot4.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 4 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 4 is now yellow!');
+                }
             });
 
             $spot5.on('click', function() {
                 console.log('spot5 was clicked');
                 var spotModel = new SpotModel(spot5);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot5.id;
+                var thisSpotAvailable = spot5.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 5 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 5 is now yellow!');
+                }
             });
 
             $spot6.on('click', function() {
                 console.log('spot6 was clicked');
                 var spotModel = new SpotModel(spot6);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot6.id;
+                var thisSpotAvailable = spot6.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 6 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 6 is now yellow!');
+                }
             });
 
             $spot7.on('click', function() {
                 console.log('spot7 was clicked');
                 var spotModel = new SpotModel(spot7);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot7.id;
+                var thisSpotAvailable = spot7.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 7 taken');
+                }
+                else {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 7 is now yellow!');
+                }
             });
 
             $spot8.on('click', function() {
                 console.log('spot8 was clicked');
                 var spotModel = new SpotModel(spot8);
-                spotModel.save({
-                    available: true
-                });
-                $(this).toggleClass('taken');
+
+                var thisSpotId = spot8.id;
+                var thisSpotAvailable = spot8.available;
+
+                console.log(thisSpotId, thisSpotAvailable);
+
+                if(!thisSpotAvailable) {
+                    spotModel.save({
+                        available: true
+                    });
+                    $(this).css({ background: '#D5D8DC' });
+                    console.log('Spot 8 taken');
+                }
+                if(thisSpotAvailable) {
+                    spotModel.save({
+                        available: false
+                    });
+                    $(this).css({ background: '#F5B041' });
+                    console.log('spot 8 is now yellow!');
+                }
             });
 
         });
 
         // create an array of objects with parking spot information
         var newSpotsArray = newRestaurantModel.get('spots');
-        console.log(newSpotsArray);
+        // console.log(newSpotsArray[0].available.toJSON());
 
 
-        // var spot2 = newSpotsArray[1].id;
-        // var spot3 = newSpotsArray[2].id;
-        // var spot4 = newSpotsArray[3].id;
-        // var spot5 = newSpotsArray[4].id;
-        // var spot6 = newSpotsArray[5].id;
-        // var spot7 = newSpotsArray[6].id;
-        // var spot8 = newSpotsArray[7].id;
+        // for(var i = 0; i < newSpotsArray.lenth; i++) {
 
-        /* target the restaurant id
-         *      -> newSpotsArray[i].restaurant_id
-         *
-         * target the specific id for the spot
-         *      -> newSpotsArray[i].id
-         *
-         * target the available boolean value of the spot
-         *      -> newSpotsArray[i].available
-         */
-
-        // console.log($('this'));
-
-
-        // if(newRestaurantModel.attributes.name === 'Hopdoddy' && newSpotsArray[0].id === 2) {
-        //     $.ajax({
-        //         type: 'PUT',
-        //         url: 'http://find-a-spot.herokuapp.com/spots/1',
-        //         data: {available: false},
-        //         success: function(response) {
-        //             console.log(response);
-        //         },
-        //         error: function(response) {
-        //              console.log(response);
-        //         }
-        //     });
-        // };
-
-        // if(newRestaurantModel.attributes.name === 'Hopdoddy') {
-        //     for(var i = 0; i < newSpotsArray.length; i++) {
-
-        //         // newSpotsArray[i].available = '';
-        //         // console.log(newSpotsArray[i].available);
-
-
-
-        //         // if(newSpotsArray[i].available === true){
-        //         //     // console.log( 'YEAH!!!!');
-        //         // }
         //     }
         // }
+
     });
 });
