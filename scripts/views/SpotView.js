@@ -1,34 +1,27 @@
 'use strict';
 
+var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('backbone/node_modules/underscore');
-var SpotModel = require('../models/SpotModel.js');
+var RestaurantModel = require('../models/RestaurantModel.js');
 
 module.exports = Backbone.View.extend({
-
-    className: 'parking_lot_wrapper',
-    initialize: function() {
+    template: _.template($('#restaurant-details').html()),
+    tagName: 'div',
+    initialize: function(options) {
         _.bindAll(
             this,
-            'render',
-            'toggleSelectSpot'
+            'render'
             );
-        this.$el.on('click', this.toggleSelectSpot);
-        console.log(this.model);
         this.model.on('change', this.render);
         this.render();
     },
     render: function() {
-        var newSpot = this.model.get('spots');
-        console.log(newSpot);
-        $('header').show();
-        $('nav').show();
-        $('section').hide();
-        $restaurants.show();
-    },
-    toggleSelectSpot: function() {
-        this.model.set({
-            available: !this.model.get('available')
-        });
+        this.$el.html(this.template(this.model.toJSON()));
+        if(!this.model.attributes.spots[0].available){
+            this.$el.css({ background: '#F5B041' });
+        }
+        console.log(this.model.attributes.spots[0].available);
     }
 });
+
