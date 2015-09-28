@@ -60,9 +60,9 @@ $(document).ready(function() {
         var restView = new RestaurantView({ model: newRestaurantModel, collection: spots });
         $restaurants.append(restView.$el);
 
-        var spotView = new SpotView({ model: newRestaurantModel });
-        // var newRestaurantDetails = restaurantDetailsTemplate(newRestaurantModel.toJSON());
-        // var $newRestaurantDetails = $(newRestaurantDetails);
+        var newRestaurantDetails = restaurantDetailsTemplate(newRestaurantModel.toJSON());
+        var $newRestaurantDetails = $(newRestaurantDetails);
+
         // console.log($newRestaurantDetails.get());
 
         // when the restaurant name is clicked, show/hide these pages
@@ -70,10 +70,13 @@ $(document).ready(function() {
             $('header').show();
             $('nav').show();
             $('section').hide();
-            $('#parking_spots').show();
             $parkingSpots.html('');
+            $parkingSpots.show();
+            $parkingSpots.append($newRestaurantDetails[0]);
 
-            // $parkingSpots.append($newRestaurantDetails[0]);
+            var spotView = new SpotView({ model: newRestaurantModel });
+            // $parkingSpots.append(spotView.$el);
+            console.log(spotView.$el);
 
             var spot1 = newSpotsArray[0];
 
