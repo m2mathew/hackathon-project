@@ -13,7 +13,7 @@ module.exports = Backbone.View.extend({
             this,
             'render'
             );
-        this.$el.on('click', this.toggleSpot);
+        // this.$el.on('click', this.toggleSpot);
         this.model.on('change', this.render);
         this.render();
     },
@@ -22,7 +22,6 @@ module.exports = Backbone.View.extend({
         $('nav').show();
         $('section').hide();
         $('#restaurants').show();
-        console.log(this.$el);
 
         this.$el.html(this.template(this.model.toJSON()));
     },
