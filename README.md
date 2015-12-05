@@ -1,4 +1,4 @@
-# Hackathon Project
+# Hackathon  - August cohort
 
 Work collaboritavely to create a project with team members from the design, back-end, and front-end cohorts.
 
