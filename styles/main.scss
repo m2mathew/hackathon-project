@@ -8,7 +8,7 @@ header {
 	background-color: $navy;
 	box-sizing: border-box;
 	overflow: hidden;
-	
+
 	#logo {
 		font-family: $header-font;
 		font-weight: 700;
@@ -69,10 +69,10 @@ header {
 	font-family: $header-font;
 	font-weight: 700;
 	color: $gray;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.85);
 	font-size: 2em;
 	margin: 30px;
 	max-width: 200px;
-	// background: url('');
 	background-size: cover;
 
 	&:hover {
@@ -102,7 +102,7 @@ header {
 }
 
 .parking_lot_wrapper {
-	padding: 5px 30px 30px 20px; 
+	padding: 5px 30px 30px 20px;
 	max-width: 400px;
 
 	div {
@@ -224,7 +224,7 @@ footer {
 		max-width: 380px;
 	}
 
-	.parking_lot_wrapper { 
+	.parking_lot_wrapper {
 		max-width: 430px;
 
 		div {
@@ -251,7 +251,7 @@ footer {
 		.restaurant_addy {
 			margin-top: 30px;
 		}
-	}	
+	}
 }
 
 

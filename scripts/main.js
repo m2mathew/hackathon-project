@@ -25,18 +25,16 @@ $(document).ready(function() {
 
     var Router = Backbone.Router.extend({
         routes: {
-            '': 'showRestaurants',
-            'restaurants': 'showRestaurants',
+            '': 'home',
+            'restaurants': 'home',
             'login': 'goToLogin',
             'parking': 'restaurantDetails'
         },
-        showRestaurants: function() {
-            console.log('restraurants link clicked');
+        home: function() {
             $('section').hide();
             $restaurants.show();
         },
         goToLogin: function() {
-            console.log('login link clicked');
             $('section').hide();
             $login.show();
         },
@@ -63,8 +61,6 @@ $(document).ready(function() {
         var newRestaurantDetails = restaurantDetailsTemplate(newRestaurantModel.toJSON());
         var $newRestaurantDetails = $(newRestaurantDetails);
 
-        // console.log($newRestaurantDetails.get());
-
         // when the restaurant name is clicked, show/hide these pages
         restView.$el.on('click', function() {
             $('header').show();
@@ -75,26 +71,12 @@ $(document).ready(function() {
             $parkingSpots.append($newRestaurantDetails[0]);
 
             var spotView = new SpotView({ model: newRestaurantModel });
-            // $parkingSpots.append(spotView.$el);
             console.log(spotView.$el);
 
             var spot1 = newSpotsArray[0];
 
             var thisSpotId = spot1.id;
             var thisSpotAvailable = spot1.available;
-            // if(spot1.available === true) {
-            //     $(this).css('background', '#fff');
-            //     console.log($(this));
-            //     console.log('yayess!');
-            // }
-            console.log(thisSpotId, thisSpotAvailable);
-
-            // if(thisSpotAvailable === true) {
-            //     $($parking_spots).css({ background: '#D5D8DC' });
-            //     }
-            // if(thisSpotAvailable === false) {
-            //     $(this).css({ background: '#F5B041' });
-            // }
 
             var spot2 = newSpotsArray[1];
             var spot3 = newSpotsArray[2];
@@ -114,199 +96,166 @@ $(document).ready(function() {
             var $spot8 = $('#parking_spot_8');
 
             $spot1.on('click', function() {
-                console.log('spot1 was clicked');
                 var spotModel = new SpotModel(spot1);
-
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 1 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 1 is now yellow!');
                 }
              });
 
             $spot2.on('click', function() {
-                console.log('spot2 was clicked');
                 var spotModel = new SpotModel(spot2);
 
                 var thisSpotId = spot2.id;
                 var thisSpotAvailable = spot2.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 2 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 2 is now yellow!');
                 }
             });
 
             $spot3.on('click', function() {
-                console.log('spot3 was clicked');
                 var spotModel = new SpotModel(spot3);
 
                 var thisSpotId = spot3.id;
                 var thisSpotAvailable = spot3.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 3 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 3 is now yellow!');
                 }
             });
 
             $spot4.on('click', function() {
-                console.log('spot4 was clicked');
                 var spotModel = new SpotModel(spot4);
 
                 var thisSpotId = spot4.id;
                 var thisSpotAvailable = spot4.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 4 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 4 is now yellow!');
                 }
             });
 
             $spot5.on('click', function() {
-                console.log('spot5 was clicked');
                 var spotModel = new SpotModel(spot5);
 
                 var thisSpotId = spot5.id;
                 var thisSpotAvailable = spot5.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 5 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 5 is now yellow!');
                 }
             });
 
             $spot6.on('click', function() {
-                console.log('spot6 was clicked');
                 var spotModel = new SpotModel(spot6);
 
                 var thisSpotId = spot6.id;
                 var thisSpotAvailable = spot6.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 6 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 6 is now yellow!');
                 }
             });
 
             $spot7.on('click', function() {
-                console.log('spot7 was clicked');
                 var spotModel = new SpotModel(spot7);
 
                 var thisSpotId = spot7.id;
                 var thisSpotAvailable = spot7.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 7 taken');
                 }
                 else {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 7 is now yellow!');
                 }
             });
 
             $spot8.on('click', function() {
-                console.log('spot8 was clicked');
                 var spotModel = new SpotModel(spot8);
 
                 var thisSpotId = spot8.id;
                 var thisSpotAvailable = spot8.available;
 
-                console.log(thisSpotId, thisSpotAvailable);
 
                 if(!thisSpotAvailable) {
                     spotModel.save({
                         available: true
                     });
                     $(this).css({ background: '#D5D8DC' });
-                    console.log('Spot 8 taken');
                 }
                 if(thisSpotAvailable) {
                     spotModel.save({
                         available: false
                     });
                     $(this).css({ background: '#F5B041' });
-                    console.log('spot 8 is now yellow!');
                 }
             });
 
@@ -314,7 +263,5 @@ $(document).ready(function() {
 
         // create an array of objects with parking spot information
         var newSpotsArray = newRestaurantModel.get('spots');
-        // console.log(newSpotsArray[0].available.toJSON());
-
     });
 });
