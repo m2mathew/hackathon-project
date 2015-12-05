@@ -11,6 +11,6 @@ Our web application will allow a restaurant customer to select a local restauran
 
 #### Contributors
 
-*UI/UX Design - [Liz Schilb](https://www.linkedin.com/in/liz-schilb-1326064a)
-*Front End Development - [Mike Mathew](https://github.com/m2mathew) and [Mory Friedman](https://github.com/Moryf1990/Mory-Friedman)
-*Back End Architecture - [Ryan Yep](https://github.com/rcyep87)
+* UI/UX Design - [Liz Schilb](https://www.linkedin.com/in/liz-schilb-1326064a)
+* Front End Development - [Mike Mathew](https://github.com/m2mathew) and [Mory Friedman](https://github.com/Moryf1990/Mory-Friedman)
+* Back End Architecture - [Ryan Yep](https://github.com/rcyep87)
